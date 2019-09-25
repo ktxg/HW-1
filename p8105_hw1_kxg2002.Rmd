@@ -1,0 +1,12 @@
+---
+title: "HW 1 for Git upload"
+author: "Katie"
+date: "9/25/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
