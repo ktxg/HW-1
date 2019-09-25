@@ -28,5 +28,11 @@ mean_of_factor_vector = mean(pull(dataframe_one, factor_vector)) ## Error occurr
 
 When trying to take the mean of each variable in our dataframe, it works for the random_sample and the logical_vector. It does not work for the character_vector or the factor_vector. 
 
+```{r eval = FALSE, convert_to_numeric}
+as.numeric(pull(dataframe_one, logical_vector))
+as.numeric(pull(dataframe_one, character_vector))
+as.numeric(pull(dataframe_one, factor_vector))
+```
 
+When we apply the as.numeric function to the logical, character, and factor variables, we are able to turn the logical and factor variables into numbers. However, we aren't able to turn the character variables into numbers. 
 
