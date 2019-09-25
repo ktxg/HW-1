@@ -36,3 +36,24 @@ as.numeric(pull(dataframe_one, factor_vector))
 
 When we apply the as.numeric function to the logical, character, and factor variables, we are able to turn the logical and factor variables into numbers. However, we aren't able to turn the character variables into numbers. 
 
+```{r convert_logical_vector}
+logical_to_numeric = tibble(
+  to_numeric = as.numeric(pull(dataframe_one, logical_vector)),
+  random = pull(dataframe_one, random_sample),
+  to_numeric_result = to_numeric * random
+)
+
+logical_to_factor = tibble(
+  to_factor = as.factor(pull(dataframe_one, logical_vector)),
+  random = pull(dataframe_one, random_sample),
+  to_factor_result = to_factor * random
+) ## Error occurred when running the above code
+
+logical_to_factor_to_numeric = tibble(
+  to_factor = as.factor(pull(dataframe_one, logical_vector)),
+  factor_to_numeric = as.numeric(to_factor),
+  random = pull(dataframe_one, random_sample),
+  logical_to_factor_to_numeric_result = factor_to_numeric * random
+)
+```
+
