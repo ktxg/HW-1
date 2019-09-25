@@ -57,3 +57,28 @@ logical_to_factor_to_numeric = tibble(
 )
 ```
 
+```{r create_dataframe_two}
+set.seed(2) 
+
+dataframe_two = tibble(
+  x = rnorm(500), 
+  y = rnorm(500), 
+  greater_than_one = x + y > 1, 
+  greater_than_one_to_numeric = as.numeric(greater_than_one),
+  greater_than_one_to_factor = as.factor(greater_than_one)
+)
+
+ggplot(dataframe_two, aes(x = x, y = y, color = greater_than_one)) + geom_point() 
+ggplot(dataframe_two, aes(x = x, y = y, color = greater_than_one_to_numeric)) + geom_point() 
+ggplot(dataframe_two, aes(x = x, y = y, color = greater_than_one_to_factor)) + geom_point() 
+```
+
+*  The **size of the dataset**: `r nrow(dataframe_two)` rows and `r ncol(dataframe_two)` columns. 
+*  The **mean** of x: `r mean(pull(dataframe_two, x))`   
+*  The **median** of x: `r median(pull(dataframe_two, x))`
+*  The **standard deviation** of x: `r sd(pull(dataframe_two, x))`
+*  The **proportion of cases** for which x + y > 1: `r sum(pull(dataframe_two, greater_than_one)) / nrow(dataframe_two)`  
+
+Looking at the scatterplot of y vs x with the colored logical, numeric, and factor variable points, we see that there is a distinct divide in color that arises in a similar fashion for all three graphs. The uppermost right portion of the graphs are a different color compared to the bottom lefthand area. There seems to be an invisible line of slope -1 that follows the equation y = -x + 1 where anything to the top of that line is one color, and anything to the bottom of that graph is a different color. 
+
+
